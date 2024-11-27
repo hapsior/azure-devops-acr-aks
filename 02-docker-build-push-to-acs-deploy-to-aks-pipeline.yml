@@ -65,15 +65,7 @@ stages:
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
 
-          - task: KubernetesManifest@0
-            displayName: Deploy to Kubernetes cluster
-            inputs:
-              action: deploy
-              manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
-              containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
-
+          - script: |
+              SERVICE_NAME=$(kubectl get svc -o jsonpath='{.items[0].metadata.name}')
+              echo "Service Name: $SERVICE_NAME"
+            displayName: 'Get Service Name'
