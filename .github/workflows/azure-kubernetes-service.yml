@@ -44,7 +44,7 @@ env:
   CONTAINER_NAME: "hapi-nginx"
   RESOURCE_GROUP: "rg-AKS-dev"
   CLUSTER_NAME: "AKS-dev"
-  DEPLOYMENT_MANIFEST_PATH: "./manifests/deployment.yaml"
+  DEPLOYMENT_MANIFEST_PATH: "./kube-manifests/01-Deployment-and-LoadBalancer-Service.yml"
 
 jobs:
   buildImage:
