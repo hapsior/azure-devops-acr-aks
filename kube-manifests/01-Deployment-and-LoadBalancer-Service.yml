@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:hapi-nginx-deployment
+  name: hapi-nginx-deployment
   labels:
     app: hapi-nginx
 spec:
